@@ -1,4 +1,12 @@
 #!/bin/bash
+
+cat << EOF
+Warning: This configure.sh is being deprecated. Run the following instead:
+
+    ansible-playbook -i ansible_hosts configure.yaml
+
+EOF
+
 ansible-playbook tmpfs.yaml -i ansible_hosts
 ansible-playbook go.yaml -i ansible_hosts
 ansible-playbook docker.yaml -i ansible_hosts
