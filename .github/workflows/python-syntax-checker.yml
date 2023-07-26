@@ -31,6 +31,8 @@ jobs:
       - name: Run unittest
         run: |
           pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=acto | tee pytest-coverage.txt
+      - name: Echo
+        run: echo this new version is indeed running
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
