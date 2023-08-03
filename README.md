@@ -4,11 +4,23 @@
 
 The instructions will reproduce the key results in Tables 5, 6, 7, and 8 in Section 6 of the submission. That is, the following instructions will lead you to (1) reproduce all 56 bugs found by Acto and oracles needed to find them, and (2) reproduce the test generation.
 
-The entire artifact process can take around 2 hours if run with a concurrency of 16 workers (e.g., using the CloudLab machine we suggest); it will take about 17 hours if running sequentially (with no concurrent worker).
+The entire artifact evaluation process can take around 2 hours if run with a concurrency of 16 workers (e.g., using the CloudLab machines we suggest); it will take about 17 hours if you run the tests sequentially (with no concurrent workers).
 
 If you have any questions, please contact us via email or HotCRP.
 
 # 2. Prerequisites
+
+Acto can be run either (1) on the [CloudLab](https://www.cloudlab.us/) platform (recommended), or (2) on your local environment. When it comes to CloudLab, you may set up the dependencies either (1) automatically using [this profile](https://www.cloudlab.us/instantiate.php?project=Sieve-Acto&profile=acto-cloudlab&refspec=refs/heads/main) we provided, or (2) manually from a fresh OS.
+
+Please jump to subsections of your choice for detailed instructions:
+
+- Run Acto on CloudLab (recommended)
+
+    For **all** CloudLab users, please read this [general guide]() and [notes on resource reservation](). Then you may choose either way of setting up dependencies:
+
+    - [Set up dependencies automatically with the profile]() (recommended)
+    - [Set up dependencies manually from a fresh OS]()
+- [Run Acto locally]()
 
 ## Setting up [CloudLab](https://www.cloudlab.us/) machines
 
