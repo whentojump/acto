@@ -54,7 +54,12 @@ class StatefulSetState(KubernetesNamespacedDictObject):
                 )
 
             if stateful_set.spec.replicas != stateful_set.status.ready_replicas:
-                return False, f"StatefulSet[{name}] replicas mismatch"
+                return (
+                    False,
+                    f"StatefulSet[{name}] replicas mismatch, "
+                    + f"desired[{stateful_set.spec.replicas}] "
+                    + f"!= ready[{stateful_set.status.ready_replicas}]",
+                )
 
             if stateful_set.status.conditions is not None:
                 for condition in stateful_set.status.conditions:

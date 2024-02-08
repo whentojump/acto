@@ -39,7 +39,12 @@ class ReplicaSetState(KubernetesNamespacedDictObject):
                 return False, f"ReplicaSet[{name}] generation mismatch"
 
             if replica_set.spec.replicas != replica_set.status.ready_replicas:
-                return False, f"ReplicaSet[{name}] replicas mismatch"
+                return (
+                    False,
+                    f"ReplicaSet[{name}] replicas mismatch, "
+                    + f"desired[{replica_set.spec.replicas}] "
+                    + f"!= ready[{replica_set.status.ready_replicas}]",
+                )
 
             if replica_set.status.conditions is not None:
                 for condition in replica_set.status.conditions:
