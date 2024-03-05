@@ -1,0 +1,14 @@
+{
+    "deploy": {
+        "steps": [
+            {
+                "apply": {
+                    "file": "data/wt/bundle.yaml",
+                    "operator": true
+                }
+            }
+        ]
+    },
+    "crd_name": "perconaservermongodbs.psmdb.percona.com",
+    "seed_custom_resource": "data/wt/cr-minimal.yaml"
+}

@@ -240,10 +240,18 @@ def get_testcases(
 
         # sort by priority
         generator_candidates.sort(key=lambda x: x.priority, reverse=True)
+        # For my operator, updateStrategy is a string (not object like native schema)
+        # Her candidate has two elements. but we only try the first one
         if len(generator_candidates) > 0:
-            test_cases.append(
-                (schema.path, generator_candidates[0].func(schema)),
-            )
+            # print (schema.path)
+            if (schema.path == ['spec', 'updateStrategy']):
+                test_cases.append(
+                    (schema.path, generator_candidates[1].func(schema)),
+                )
+            else:
+                test_cases.append(
+                    (schema.path, generator_candidates[0].func(schema)),
+                )
 
         # check sub schemas
         if isinstance(schema, ArraySchema):
