@@ -9,6 +9,7 @@
             }
         ]
     },
+    "num_nodes": 6,
     "crd_name": "perconaservermongodbs.psmdb.percona.com",
     "seed_custom_resource": "data/wt/cr-minimal.yaml"
 }
