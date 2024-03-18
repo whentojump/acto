@@ -4,7 +4,7 @@
         "steps": [
             {
                 "apply": {
-                    "file": "data/percona-server-mongodb-operator/bundle.yaml",
+                    "file": "data/wt/bundle.yaml",
                     "operator": true
                 }
             }
@@ -12,7 +12,7 @@
     },
     "crd_name": "perconaservermongodbs.psmdb.percona.com",
     "custom_module": "data.percona-server-mongodb-operator.custom_mapping",
-    "seed_custom_resource": "data/percona-server-mongodb-operator/cr.yaml",
+    "seed_custom_resource": "data/wt/cr-minimal.yaml",
     "example_dir": "data/percona-server-mongodb-operator/examples",
     "analysis": {
         "github_link": "https://github.com/percona/percona-server-mongodb-operator.git",
