@@ -11,7 +11,7 @@
         ]
     },
     "crd_name": "perconaservermongodbs.psmdb.percona.com",
-    "custom_module": "data.percona-server-mongodb-operator.custom_mapping_v1.15.0",
+    "custom_module": "data.percona-server-mongodb-operator.custom_mapping",
     "seed_custom_resource": "data/wt/cr-minimal.yaml",
     "example_dir": "data/percona-server-mongodb-operator/examples",
     "analysis": {
