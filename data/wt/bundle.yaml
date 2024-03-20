@@ -17291,7 +17291,7 @@ spec:
             name: metrics
           command:
           - percona-server-mongodb-operator
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: LOG_STRUCTURED
               value: 'false'
