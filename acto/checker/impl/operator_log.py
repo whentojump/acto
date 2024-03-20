@@ -20,6 +20,19 @@ class OperatorLogChecker(CheckerInterface):
         input_delta, __ = snapshot.delta(prev_snapshot)
 
         for line in snapshot.operator_log:
+            # Skip lines we are sure we cannot handle 
+            # Go backtrace following the actual ERROR
+            if (line.startswith("github.com/percona/percona-server-mongodb-operator/")):
+                continue
+            if (line.startswith("sigs.k8s.io/controller-runtime")):
+                continue
+            if (line.startswith("	/go/pkg/mod/sigs.k8s.io/controller-runtime")):
+                continue
+            if (line.startswith("	/go/src/")):
+                continue
+            # Empty lines
+            if (len(line) == 0):
+                continue
             parsed_log = parse_log(line)
             # We do not check the log line if it is not a warn/error/fatal message
             _, level = visit_dict(parsed_log, ["level"])
