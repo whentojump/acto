@@ -467,9 +467,9 @@ class DeployRunner:
             cr = group.iloc[0]["input"]
 
             snapshot, err = runner.run(cr, generation=generation)
+            # TODO this err is not handled
             snapshot.dump(runner.trial_dir)
             after_run_time = time.time()
-            err = True
             difftest_result = DiffTestResult(
                 input_digest=group.iloc[0]["input_digest"],
                 snapshot=snapshot,
@@ -487,9 +487,9 @@ class DeployRunner:
             )
             difftest_result.to_file(difftest_result_path)
 
-            if err:
+            if True: # Restart cluster every time for difftest
                 before_k8s_bootstrap_time = time.time()
-                logger.error("Restart cluster due to error: %s", err)
+                logger.info("Restart cluster")
                 # Start the cluster and deploy the operator
                 self._cluster.restart_cluster(
                     self._cluster_name, self._kubeconfig
