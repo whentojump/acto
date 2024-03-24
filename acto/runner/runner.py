@@ -392,7 +392,15 @@ class Runner:
             resource in dict
         """
         result_dict = {}
-        resource_objects = method(namespace=self.namespace, watch=False).items
+
+        try:
+            x = method(namespace=self.namespace, watch=False)
+        except ValueError as e:
+            print("Maybe there's a monitor exception")
+            print(str(e))
+            return result_dict
+
+        resource_objects = x.items
 
         for obj in resource_objects:
             result_dict[obj.metadata.name] = obj.to_dict()
@@ -459,6 +467,10 @@ class Runner:
                 if event == "timeout":
                     converge = False
                     break
+                # else:
+                #     converge = False
+                #     print(event)
+                #     break
             except queue.Empty:
                 ready = True
                 statefulsets = self.__get_all_objects(

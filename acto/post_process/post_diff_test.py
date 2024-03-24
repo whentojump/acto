@@ -604,7 +604,9 @@ class PostDiffTest(PostProcessor):
         acto_namespace: int = 0,
     ):
         self.acto_namespace = acto_namespace
+        print("\n [WTJ] Post-process: init, loading trial directories\n")
         super().__init__(testrun_dir, config)
+        print("\n [WTJ] Post-process: init done\n")
         logger = get_thread_logger(with_prefix=True)
 
         self.all_inputs = []
